@@ -1,38 +1,40 @@
+import { useState, useEffect } from "react";
 
+const AllPuppies = () => {
+  const [puppies, setPuppies] = useState([]);
+  const [error, setError] = useState(null);
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          "https://fsa-puppy-bowl.herokuapp.com/api/2502-FTB-ET-WEB-FT/players"
+        );
+        const result = await response.json();
+        console.log(result.data.players);
+        setPuppies(result.data.players);
+      } catch (error) {
+        setError(error);
+      }
+    }
 
+    fetchData();
+  }, []);
 
-// Soruce Code for Card 
-
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-
-export default function MediaCard() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="green iguana"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+    <div>
+      <h2>All Puppies</h2>
+      {error && <p>Error: {error.message}</p>}
+      {puppies.map((puppy) => (
+        <article key={puppy.id}>
+          <div>{puppy.name}</div>
+          <div>
+            <img src={puppy.imageUrl} alt={puppy.name} />
+          </div>
+        </article>
+      ))}
+    </div>
   );
-}
+};
+
+export default AllPuppies;

@@ -40,3 +40,38 @@
 .read-the-docs {
   color: #888;
 }
+
+.player-item {
+  list-style: none;
+  margin-bottom: 1.5rem;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.player-item img {
+  margin-top: 0.5rem;
+  border-radius: 6px;
+}
+
+body { 
+  background-color: black;
+}
+
+.navbar {
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+
+
+
