@@ -1,4 +1,5 @@
-# React + Vite
+# Puppy Bowl React 
+
 ## Netlify 
 
 https://sprightly-bonbon-dba638.netlify.app
@@ -14,4 +15,5 @@ https://sprightly-bonbon-dba638.netlify.app
 
 
 ### Debugging Missing Imports
-* Completely forgot to install react-router-dom and wrap the app properly 
+* Completely forgot to install react-router-dom and wrap the app properly.
+* Also forgot to define an element once imported a couple times 

@@ -1,3 +1,6 @@
+// It also filters by the searchParam passed from App
+// Players are links to the SinglePlayer view
+
 import { useState, useEffect } from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
@@ -26,6 +29,7 @@ const AllPuppies = ({ searchParam }) => {
     setPuppies((prev) => prev.filter((puppy) => puppy.id !== id));
   };
 
+  // Filter the players using the search input
   const filteredPuppies = puppies.filter((puppy) =>
     puppy.name.toLowerCase().includes(searchParam.toLowerCase())
   );
@@ -33,6 +37,8 @@ const AllPuppies = ({ searchParam }) => {
   return (
     <div id="all-puppies-container">
       {error && <p>Error: {error.message}</p>}
+
+      {/* Display player cards */}
       {filteredPuppies.map((puppy) => (
         <article key={puppy.id} className="puppy-card">
           <Link

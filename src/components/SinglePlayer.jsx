@@ -1,3 +1,6 @@
+// 🔹 This page displays a single player based on their ID from the URL (React Router) Originally iid this as a Modal 
+// It fetches the full player details from the API
+
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -7,6 +10,7 @@ const SinglePlayer = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    
     const fetchPlayer = async () => {
       try {
         const response = await fetch(
