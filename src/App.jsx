@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/navbar";
 import PlayerForm from "./components/NewPlayersForm";
-import AllPuppies from "./components/AllPlayers"; // ✅ Make sure the path is correct
+import AllPuppies from "./components/AllPlayers";
+import SinglePlayer from "./components/SinglePlayer"; // Route view
 
 const App = () => {
   const [searchParam, setSearchParam] = useState("");
@@ -21,31 +23,43 @@ const App = () => {
       <Navbar setSearchParam={setSearchParam} />
 
       <main className="main-content">
-        <p>
-          Search Term: <strong>{searchParam}</strong>
-        </p>
+        <Routes>
+          {/* Main Home Page */}
+          <Route
+            path="/"
+            element={
+              <>
+                <PlayerForm addPlayer={addPlayer} />
 
-        <PlayerForm addPlayer={addPlayer} />
+                <div className="content-area">
+                  <h2>🐶 Active Player Roster 🐶</h2>
 
-        <div className="content-area">
-          <h2>🐶 Active Player Roster 🐶</h2>
-          {filteredPlayers.length > 0 ? (
-            <ul>
-              {filteredPlayers.map((player, index) => (
-                <li key={index} className="player-item">
-                  <h3>{player.name}</h3>
-                  <p>Breed: {player.breed}</p>
-                  <img src={player.imageUrl} alt={player.name} width="150" />
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No players to show.</p>
-          )}
+                  {filteredPlayers.length > 0 && (
+                    <ul>
+                      {filteredPlayers.map((player, index) => (
+                        <li key={index} className="player-item">
+                          <h3>{player.name}</h3>
+                          <p>Breed: {player.breed}</p>
+                          <img
+                            src={player.imageUrl}
+                            alt={player.name}
+                            width="150"
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
-          {/* ✅ This displays the full API list below your filtered list */}
-          <AllPuppies />
-        </div>
+                  {/* Pass searchParam to AllPuppies for filtering */}
+                  <AllPuppies searchParam={searchParam} />
+                </div>
+              </>
+            }
+          />
+
+          {/* Single Player Route */}
+          <Route path="/player/:id" element={<SinglePlayer />} />
+        </Routes>
       </main>
     </div>
   );

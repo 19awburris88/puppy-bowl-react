@@ -5,42 +5,6 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 .player-item {
   list-style: none;
   margin-bottom: 1.5rem;
@@ -60,17 +24,137 @@ body {
 }
 
 .navbar {
-  padding: 1rem;
+  width: 100%;
+  padding: 1rem 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
+/* Search input */
+.search-box input {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-box input:focus {
+  border-color: #1976d2; 
+}
+
+.icon-button {
+  background: #1976d2;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button:hover {
+  background: #115293;
+}
+
+#all-puppies-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+  margin: 40px auto;
+  max-width: 65%;
+}
+
+.puppy-card {
+  background-color: black;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(200, 162, 29, 0.8);
+  padding: 20px;
+  text-align: center;
+  border: 3px solid white;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: transform 0.3s ease-in-out;
+}
+
+.puppy-card:hover {
+  transform: scale(1.03);
+}
+
+.puppy-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: fill;
+  border-radius: 8px;
+  border: 3px solid grey;
+}
+
+.add-player-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.add-player-section h2 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.add-player-section input {
+  padding: 0.6rem 1rem;
+  margin: 0.3rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  color: #fff;
+  width: 220px;
+  font-size: 0.95rem;
+}
+
+.add-player-section input::placeholder {
+  color: #bbb;
+}
+
+.add-player-section button {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #222;
+  color: white;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-player-section button:hover {
+  background-color: #444;
+}
 
 
 

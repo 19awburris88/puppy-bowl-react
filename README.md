@@ -1,12 +1,17 @@
 # React + Vite
+## Netlify 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://sprightly-bonbon-dba638.netlify.app
 
-Currently, two official plugins are available:
+## Challenges I Faced
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### React Router Setup
+* I originally used a modal for displaying individual players, but the assignment required using React Router. After talking to Mark I changed directions. 
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Search Filtering
+* My search function was only filtering players from the manually added list but not the API-fetched list. 
+
+
+### Debugging Missing Imports
+* Completely forgot to install react-router-dom and wrap the app properly 
